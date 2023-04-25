@@ -1,17 +1,23 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import DB from '@database'
 
-const allAvos = async (request: NextApiRequest, response: NextApiResponse) => {
-  
-  const db = new DB()
-  const id = request.query.id
-  const avo = await db.getById(id as string)
+const AvoDetail = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    // Generally, you would not want this in your apps.
+    // See more in 'cors.js'
 
-  // response.statusCode = 200 //ok
-  // response.setHeader('Content-type', 'application/json')
-  // response.end(JSON.stringify({ data: entry }))
+    const db = new DB()
+    const avoId = req.query.id as string
 
-  response.status(200).json({avo})
+    const avo = await db.getById(avoId)
+
+    // Notice: We're using Next.JS response helpers here :)
+    // https://nextjs.org/docs/api-routes/response-helpers
+    res.status(200).json(avo)
+  } catch (e) {
+    console.error(e)
+    res.status(404).end()
+  }
 }
 
-export default allAvos
+export default AvoDetail
