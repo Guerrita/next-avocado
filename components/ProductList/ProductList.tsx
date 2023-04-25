@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import Grid from "@aura-design/system/grid"
 import Link from 'next/link'
 
 type ProductListProps = {
@@ -9,19 +9,21 @@ type ProductListProps = {
 const mapProductsToCards = (products: TProduct[]) =>
   products.map(({ name, id, price, image }) => (
     <Link key={id} href="/product/[id]" as={`/product/${id}`} passHref>
-      <Card
-        as="a"
-        header={name}
-        image={image}
-        meta={<Card.Meta style={{ color: 'dimgray' }}>{price}</Card.Meta>}
-      />
+      <Grid col="one" className='valing teal-green zoom pointer' style={{margin: "auto", border: "2px solid var(--aura-green)"}}>
+        <img src={image}/>
+        <div className=''>
+          
+        <p className=''>{name}</p>
+        <p className=''>{price}</p>
+        </div>
+      </Grid>
     </Link>
   ))
 
 const ProductList = ({ products }: ProductListProps) => (
-  <Card.Group itemsPerRow={3} stackable>
+  <Grid col="two" className='smush centertxt'>
     {mapProductsToCards(products)}
-  </Card.Group>
+  </Grid>
 )
 
 export default ProductList

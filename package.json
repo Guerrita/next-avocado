@@ -13,6 +13,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@aura-design/system": "^0.4.33",
     "isomorphic-unfetch": "^4.0.2",
     "next": "^9.4.2",
     "react": "^16.13.1",
