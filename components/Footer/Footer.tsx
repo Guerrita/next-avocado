@@ -7,28 +7,28 @@ const Footer = () => (
   <footer className="mt13 pad centertxt green">
     <Grid col="three">
       <div className='valign'>
-        <h6>Servicios</h6>
+        <h6>Services</h6>
         <Link href="/">
-          <a>Todos los productos</a>
+          <a>All products</a>
         </Link>
       </div>
       
       <div className='valign'>
-        <h6>Nosotros</h6>
+        <h6>About us</h6>
         <Link href="/about">
-          <a>Conoce más</a>
+          <a>Know more about us</a>
         </Link>
       </div>
       
       
       <div className='valign'>
-        <h6>Otros</h6>
+        <h6>Links of interest</h6>
         <ul className="">
-          <li>
+          <li className='item'>
             <a href="https://andresguerramontoya.com/">Andres Guerra Montoya</a>
           </li>
-          <li>
-            <a href="https://github.com/Guerrita">GitHub</a>
+          <li className='item'>
+            <a href="https://github.com/Guerrita/next-avocado">GitHub</a>
           </li>
         </ul>
       </div>
