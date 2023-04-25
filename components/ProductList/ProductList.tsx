@@ -26,7 +26,7 @@ const mapProductsToCards = (products: TProduct[]) =>
   ))
 
 const ProductList = ({ products }: ProductListProps) => (
-  <Grid col="two" className="smush centertxt">
+  <Grid col="two" className="smush centertxt aura">
     {mapProductsToCards(products)}
   </Grid>
 )
