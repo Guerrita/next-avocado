@@ -6,22 +6,22 @@ import Separator from '@aura-design/system/separator'
 const Footer = () => (
   <footer className="mt13 pad centertxt green">
     <Grid col="three">
-      <div className='valign'>
+      <div className=''>
         <h6>Services</h6>
         <Link href="/">
           <a>All products</a>
         </Link>
       </div>
       
-      <div className='valign'>
+      <div className=''>
         <h6>About us</h6>
         <Link href="/about">
-          <a>Know more about us</a>
+          <a>Know more about Avos</a>
         </Link>
       </div>
       
       
-      <div className='valign'>
+      <div className=''>
         <h6>Links of interest</h6>
         <ul className="">
           <li className='item'>

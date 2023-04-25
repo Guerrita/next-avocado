@@ -4,6 +4,7 @@ import Layout from '@components/Layout/Layout'
 import CartItemList from '@components/CartItemList/CartItemList'
 import CartSummary from '@components/CartSummary/CartSummary'
 import { useCart, useCartMutations } from '@store/Cart'
+import Separator from '@aura-design/system/dist/components/separator'
 
 const CartPage = () => {
   const { items, count } = useCart()
@@ -11,9 +12,12 @@ const CartPage = () => {
 
   return (
     <Layout>
+      <div className='smush pad'>
       <CartItemList items={items} removeFromCart={removeFromCart} />
-      <Divider />
+      <Separator/>
       <CartSummary totalAmount={count} />
+
+      </div>
     </Layout>
   )
 }
