@@ -1,4 +1,4 @@
-import KawaiiHeader from '@components/Header/Header'
+import Header from '@components/Header/Header'
 import Layout from '@components/Layout/Layout'
 import ProductList from '@components/ProductList/ProductList'
 import React, { useEffect, useState } from 'react'
@@ -17,7 +17,7 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <KawaiiHeader />
+      <Header />
       <ProductList products={productList} />
     </Layout>
   )
