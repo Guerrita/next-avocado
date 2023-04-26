@@ -7,7 +7,7 @@ import fetch from 'isomorphic-unfetch'
 
 export const getServerSideProps = async () => {
 
-  const response = await fetch('https://platzi-avo.vercel.app/api/avo')
+  const response = await fetch('https://avos.andresguerramontoya.com//api/avo')
   const {data:productList}:TAPIAvoResponse = await response.json()
 
   return {

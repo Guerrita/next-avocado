@@ -1,5 +1,4 @@
-import React, { PropsWithChildren } from 'react'
-import { Container } from 'semantic-ui-react'
+import React from 'react'
 
 import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
@@ -11,9 +10,9 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => (
   <>
     <Navbar />
-    <Container as="main" text>
+    <section style={{minHeight: 'calc(100vh - 292px)'}}>
       {children}
-    </Container>
+    </section>
     <Footer />
   </>
 )

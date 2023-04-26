@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Confirm } from 'semantic-ui-react'
-
 import PuesVivo from './AnimatedHeader'
 import PuesMuero from './RottenHeader'
 import ModalHeaderContent from './ModalHeaderContent'
@@ -23,6 +21,7 @@ const Header = () => {
       setMeMori(true)
       setModalOpen(true)
     }
+    console.log(count)
   }, [count])
 
   return (
@@ -32,29 +31,58 @@ const Header = () => {
       ) : (
         <PuesVivo
           visible={visible}
-          onClick={toggleVisible}
-          onComplete={() => setCount((prevCount) => prevCount + 1)}
+          onClick={() => setCount((prevCount) => prevCount + 1)}
+          onComplete={toggleVisible}
         />
       )}
 
-      <Confirm
-        open={modalOpen}
-        content={ModalHeaderContent}
-        onCancel={closeModal}
-        onConfirm={closeModal}
-        cancelButton="Lo siento"
-        confirmButton="OK"
-        closeOnDimmerClick={false}
-      />
+      {modalOpen && (
+        <div
+          style={{
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+          }}
+        >
+          <div
+          className='green'
+            style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              borderRadius: '5px',
+            }}
+          >
+            <ModalHeaderContent />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <button
+                onClick={closeModal}
+                className='button-fill'
+              >
+                Lo siento
+              </button>
+              <button
+                onClick={closeModal}
+                className='button-fill'
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx>
         {`
           .container {
             margin: 2rem 0 3rem;
-          }
-          .container :global(.header) {
             display: flex;
-            align-items: center;
             justify-content: center;
           }
         `}

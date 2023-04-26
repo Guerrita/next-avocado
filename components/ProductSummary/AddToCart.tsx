@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Input, Icon, Transition } from 'semantic-ui-react'
+import { Icon, Transition } from 'semantic-ui-react'
 import { useCartMutations } from '@store/Cart'
 import Grid from '@aura-design/system/dist/components/grid'
 

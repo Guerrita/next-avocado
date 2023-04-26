@@ -1,6 +1,4 @@
 import React from 'react'
-import { Header, Transition } from 'semantic-ui-react'
-
 import { Avocado } from '@components/SVGIcons'
 
 type AnimatedHeaderProps = {
@@ -14,18 +12,17 @@ const AnimatedHeader = ({
   onClick,
   onComplete,
 }: AnimatedHeaderProps) => (
-  <Header size="huge" as="h1" onClick={onClick}>
+  <h1 style={{fontSize: "3rem", textAlign: "center"}}>
     Avo
-    <Transition
-      animation="jiggle"
-      visible={visible}
-      duration={900}
-      onComplete={onComplete}
+    <div
+      style={{ display: "inline-block", animation: visible ? "jiggle 900ms" : "none"}}
+      onAnimationEnd={onComplete}
+      onClick={onClick}
     >
       <Avocado size="58px" />
-    </Transition>
+    </div>
     Cado
-  </Header>
+  </h1>
 )
 
 export default AnimatedHeader

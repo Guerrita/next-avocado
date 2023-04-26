@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Loader } from 'semantic-ui-react'
+import  Loader  from '@components/Loader/Loader'
 import { CartItemType } from '@store/Cart'
 import Grid from '@aura-design/system/dist/components/grid'
 import Image from 'next/image'
@@ -17,7 +17,7 @@ const CartItemList = ({
   removeFromCart,
   loading = false,
 }: CartItemListProps) => {
-  if (loading) return <Loader active inline="centered" />
+  if (loading) return <Loader />
 
   if (items.length === 0)
     return (

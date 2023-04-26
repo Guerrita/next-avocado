@@ -1,5 +1,4 @@
 import React from 'react'
-import { Segment, Button } from 'semantic-ui-react'
 
 type CartSummaryProps = {
   totalAmount: number

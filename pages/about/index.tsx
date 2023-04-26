@@ -1,5 +1,4 @@
 import React from 'react'
-import { Image, Header } from 'semantic-ui-react'
 import Layout from '@components/Layout/Layout'
 
 const avoFacts = [
@@ -38,7 +37,7 @@ const AboutPage = () => {
           13 Surprising Facts About Avocados
         </h2>
         <figure>
-          <Image src="/images/avocados.jpg" alt="Avocados on a table" width="80%" height="80%" />
+          <img src="/images/avocados.jpg" alt="Avocados on a table" width="80%" height="80%" />
           <figcaption>
             Originally from{' '}
             <a

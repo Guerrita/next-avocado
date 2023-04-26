@@ -1,7 +1,6 @@
 import Grid from '@aura-design/system/dist/components/grid'
 import Separator from '@aura-design/system/dist/components/separator'
 import React from 'react'
-import { Header, Divider, Table } from 'semantic-ui-react'
 
 const ProductAttributes = ({
   description,

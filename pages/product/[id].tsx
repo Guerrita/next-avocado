@@ -7,6 +7,7 @@ import ProductSummary from '@components/ProductSummary/ProductSummary'
 import Loader from '@components/Loader/Loader'
 
 
+
 const ProductPage = () => {
   const { query } = useRouter()
   const [product, setProduct] = useState<TProduct | null>(null)
@@ -19,8 +20,8 @@ const ProductPage = () => {
         .then((data: TProduct) => {
           setProduct(data)
         })
-        setLoading(false)
-    }
+        
+    }setLoading(false)
   }, [query.id])
 
   return (
