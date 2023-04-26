@@ -11,11 +11,11 @@ COPY . .
 
 # Install production dependencies.
 # If you add a package-lock.json, speed your build by switching to 'npm ci'.
-RUN npm ci --only=production
+RUN yarn install --production=true --frozen-lockfile
 
 # Copy local code to the container image.
 
-RUN npm run build
+RUN yarn build
 
 # Run the web service on container startup.
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]

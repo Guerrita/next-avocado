@@ -13,7 +13,7 @@ const CartPage = () => {
   return (
     <Layout>
       <div className='smush pad valign' style={{height: 'calc(100vh - 292px)'}}>
-      <CartItemList items={items} removeFromCart={removeFromCart} />
+      {/*<CartItemList items={items} removeFromCart={removeFromCart} />*/}
       <Separator/>
       <CartSummary totalAmount={count} />
 

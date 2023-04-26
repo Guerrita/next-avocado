@@ -30,7 +30,7 @@ const CartItemList = ({
       </section>
     )
 
-  const mapCartItemsToItems = (items: CartItemType[]) =>
+  /*const mapCartItemsToItems = (items: CartItemType[]) =>
     items.map((cartItem) => {
       const { id, name, quantity, price, image } = cartItem
 
@@ -53,7 +53,7 @@ const CartItemList = ({
       )
     })
 
-  return mapCartItemsToItems
+  return mapCartItemsToItems*/
 }
 
 export default CartItemList
