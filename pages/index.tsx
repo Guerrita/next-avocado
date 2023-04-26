@@ -3,27 +3,31 @@ import Layout from '@components/Layout/Layout'
 import Loader from '@components/Loader/Loader'
 import ProductList from '@components/ProductList/ProductList'
 import React, { useEffect, useState } from 'react'
+import fetch from 'isomorphic-unfetch'
 
-const HomePage = () => {
-  const [productList, setProductList] = useState<TProduct[]>([])
-  const [loading, setLoading] = React.useState(true);
+export const getServerSideProps = async () => {
+
+  const response = await fetch('https://platzi-avo.vercel.app/api/avo')
+  const {data:productList}:TAPIAvoResponse = await response.json()
+
+  return {
+    props: {
+      productList,
+    },
+  }
+}
+
+const HomePage = ({ productList }: { productList: TProduct[] }) => {
+
 
   useEffect(() => {
-    window
-      .fetch('/api/avo')
-      .then((response) => response.json())
-      .then(({ data }: TAPIAvoResponse) => {
-        setProductList(data)
-      })
 
-      setLoading(false)
   }, [])
 
   return (
     <Layout>
       <Header />
-      {loading && <Loader/> ||
-      <ProductList products={productList} />}
+      { <ProductList products={productList} />}
     </Layout>
   )
 }

@@ -26,7 +26,7 @@ const Navbar = () => {
           </li>
           <li className="item pointer">
             <Link href="/cart" passHref>
-              <a><ShoppingCartIcon cartCount={cartCount} name="Canasta" /></a>
+              <ShoppingCartIcon cartCount={cartCount} name="Basket" />
             </Link>
           </li>
         </ul>

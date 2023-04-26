@@ -7,15 +7,18 @@ type CartSummaryProps = {
 
 const CartSummary = ({ totalAmount }: CartSummaryProps) => {
   return (
-    <Segment clearing size="large" as="section">
-      <span>
-        <strong>Sub total:</strong>
+    <section className='aura'>
+
+    <div className='nav-list aura' style={{border: '2px solid var(--aura-cold-grey)', height:'fit-content', borderRadius:'var(--aura-radius)' }}>
+      <p className='bold'>
+        Sub total:
         {` ${totalAmount}`}
-      </span>
-      <Button color="black" floated="right">
+      </p>
+      <button className='button-fill'>
         Check out
-      </Button>
-    </Segment>
+      </button>
+    </div>
+    </section>
   )
 }
 

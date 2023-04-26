@@ -13,7 +13,7 @@ const mapProductsToCards = (products: TProduct[]) =>
       <Grid
         col="one"
         className="valing teal-green zoom pointer"
-        style={{ margin: 'auto', border: '2px solid var(--aura-green)' }}
+        style={{ margin: 'auto', border: '2px solid var(--aura-green)', width: 'fit-content' }}
       >
         <img src={image} />
         <div>

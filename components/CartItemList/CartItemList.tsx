@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import { Item, Button, Loader, Message } from 'semantic-ui-react'
+import { Item, Loader } from 'semantic-ui-react'
 import { CartItemType } from '@store/Cart'
+import Grid from '@aura-design/system/dist/components/grid'
 
 type CartItemListProps = {
   items: CartItemType[]
@@ -18,47 +19,41 @@ const CartItemList = ({
 
   if (items.length === 0)
     return (
-      <Message warning as="section">
-        <Message.Header>Your cart is empty</Message.Header>
+      <section
+        className="aura yellow"
+        style={{ borderRadius: 'var(--aura-radius)' }}
+      >
+        <p>Your cart is empty</p>
         <p>
           You will need to add some items to the cart before you can checkout.
         </p>
-      </Message>
+      </section>
     )
 
   const mapCartItemsToItems = (items: CartItemType[]) =>
     items.map((cartItem) => {
       const { id, name, quantity, price, image } = cartItem
 
-      return {
-        childKey: id,
-        header: (
-          <Link href="/product/[id]" as={`/product/${id}/`} passHref>
-            <Item.Header as="a">{name}</Item.Header>
-          </Link>
-        ),
-        image: (
-          <Item.Image
-            src={image}
-            alt={name}
-            size="small"
-            style={{ background: '#f2f2f2' }}
-          />
-        ),
-        meta: `${quantity} x ${price}`,
-        description: 'Some more information goes here....',
-        extra: (
-          <Button
-            basic
-            icon="remove"
-            floated="right"
-            onClick={() => removeFromCart(cartItem)}
-          />
-        ),
-      }
+      return (
+        <Grid col="two" key={id}>
+          <div>
+            <img src={image} alt={name} />
+          </div>
+          <div>
+            <Link href="/product/[id]" as={`/product/${id}/`} passHref>
+              {name}
+            </Link>
+            <p>
+              `${quantity} x ${price}`
+            </p>
+            <p></p>
+            <button onClick={() => removeFromCart(cartItem)}>X</button>
+          </div>
+        </Grid>
+      )
     })
 
-  return <Item.Group divided items={mapCartItemsToItems(items)} as="section" />
+  return mapCartItemsToItems
 }
 
 export default CartItemList
