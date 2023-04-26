@@ -1,8 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-import { Item, Loader } from 'semantic-ui-react'
+import { Loader } from 'semantic-ui-react'
 import { CartItemType } from '@store/Cart'
 import Grid from '@aura-design/system/dist/components/grid'
+import Image from 'next/image'
+import Separator from '@aura-design/system/dist/components/separator'
 
 type CartItemListProps = {
   items: CartItemType[]
@@ -30,30 +32,52 @@ const CartItemList = ({
       </section>
     )
 
-  /*const mapCartItemsToItems = (items: CartItemType[]) =>
-    items.map((cartItem) => {
-      const { id, name, quantity, price, image } = cartItem
+  return (
+    <ul>
+      {items.map((cartItem) => {
+        const { id, name, quantity, price, image } = cartItem
 
-      return (
-        <Grid col="two" key={id}>
-          <div>
-            <img src={image} alt={name} />
-          </div>
-          <div>
-            <Link href="/product/[id]" as={`/product/${id}/`} passHref>
-              {name}
-            </Link>
-            <p>
-              `${quantity} x ${price}`
-            </p>
-            <p></p>
-            <button onClick={() => removeFromCart(cartItem)}>X</button>
-          </div>
-        </Grid>
-      )
-    })
+        return (
+          <li key={id} className='pad mt13'>
+            <Grid col="two" style={{ height: '300px' }}>
+              <div className="block-img">
+                <Image
+                  src={image}
+                  alt={name}
+                  layout="fill"
+                  objectFit="contain"
+                  objectPosition="center"
+                  width={undefined}
+                  height={undefined}
+                />
+              </div>
+              <Grid col="one" className='valign'>
+                <h3>
 
-  return mapCartItemsToItems*/
+                <Link href="/product/[id]" as={`/product/${id}/`} passHref>
+                  {name}
+                </Link>
+                </h3>
+                <p>
+                  {quantity} x {price}
+                </p>
+                <div>
+                  <button
+                    className="button-fill"
+                    style={{ width: 'fit-content' }}
+                    onClick={() => removeFromCart(cartItem)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </Grid>
+            </Grid>
+            <Separator/>
+          </li>
+        )
+      })}
+    </ul>
+  )
 }
 
 export default CartItemList

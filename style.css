@@ -2,8 +2,7 @@
   margin: 0 auto;
 }
 
-.item a,
-h6 ~ a{
+a{
   outline: none !important;
 }
 
