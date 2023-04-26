@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Input, Icon, Transition } from 'semantic-ui-react'
 import { useCartMutations } from '@store/Cart'
+import Grid from '@aura-design/system/dist/components/grid'
 
 type AddToCartProps = {
   product: TProduct
@@ -59,23 +60,18 @@ const AddToCart = ({ product }: AddToCartProps) => {
 
   return (
     <>
-      <Input
+    <Grid col='two' className=''>
+      <input
+      style={{padding: "var(--aura)"}}
         type="number"
         placeholder="Quantity"
         value={quantity}
         min={1}
         step={1}
-        error={!!error}
         onChange={handleChange}
-        action={{
-          color: 'green',
-          content: 'Add to Cart',
-          icon: 'plus cart',
-          onClick: handleSubmit,
-          loading,
-          disabled: loading,
-        }}
       />
+      <button className='button-fill' onClick={handleSubmit} disabled={loading}>Add to cart</button>
+    </Grid>
       {error && (
         <div style={{ color: 'red', position: 'absolute' }}>{error}</div>
       )}
