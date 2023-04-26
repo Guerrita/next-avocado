@@ -9,14 +9,14 @@ const Footer = () => (
       <div className=''>
         <h6>Services</h6>
         <Link href="/">
-          <a>All products</a>
+          All products
         </Link>
       </div>
       
       <div className=''>
         <h6>About us</h6>
         <Link href="/about">
-          <a>Know more about Avos</a>
+          Know more about Avos
         </Link>
       </div>
       
