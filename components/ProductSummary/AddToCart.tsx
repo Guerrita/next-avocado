@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Icon, Transition } from 'semantic-ui-react'
+import { Transition } from 'semantic-ui-react'
 import { useCartMutations } from '@store/Cart'
 import Grid from '@aura-design/system/dist/components/grid'
 
@@ -77,7 +77,6 @@ const AddToCart = ({ product }: AddToCartProps) => {
       )}
       <Transition duration={{ hide: 500, show: 500 }} visible={visible}>
         <div style={{ color: 'green', position: 'absolute' }}>
-          <Icon name="check" />
           Added to cart
         </div>
       </Transition>

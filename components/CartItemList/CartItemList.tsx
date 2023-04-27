@@ -38,17 +38,14 @@ const CartItemList = ({
         const { id, name, quantity, price, image } = cartItem
 
         return (
-          <li key={id} className='pad mt13'>
-            <Grid col="two" style={{ height: '300px' }}>
-              <div className="block-img">
+          <li key={id} className='mt13'>
+            <Grid col="two">
+              <div >
                 <Image
                   src={image}
                   alt={name}
-                  layout="fill"
-                  objectFit="contain"
-                  objectPosition="center"
-                  width={undefined}
-                  height={undefined}
+                  width={300}
+                  height={300}
                 />
               </div>
               <Grid col="one" className='valign'>

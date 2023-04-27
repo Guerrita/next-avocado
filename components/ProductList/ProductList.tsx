@@ -2,6 +2,7 @@ import React from 'react'
 import Grid from '@aura-design/system/grid'
 import Link from 'next/link'
 import Separator from '@aura-design/system/separator'
+import Image from 'next/image'
 
 type ProductListProps = {
   products: TProduct[]
@@ -15,7 +16,7 @@ const mapProductsToCards = (products: TProduct[]) =>
         className="valing teal-green zoom pointer"
         style={{ margin: 'auto', border: '2px solid var(--aura-green)', width: 'fit-content' }}
       >
-        <img src={image} />
+        <Image src={image} alt={name} width={300} height={300} />
         <div>
           <h6 className="">{name}</h6>
           <Separator />

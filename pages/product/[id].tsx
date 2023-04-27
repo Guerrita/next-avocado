@@ -1,33 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
-
+import { GetStaticProps } from 'next'
 import Layout from '@components/Layout/Layout'
 import ProductSummary from '@components/ProductSummary/ProductSummary'
-import Loader from '@components/Loader/Loader'
 
+//Metodo Obbligatorio para las paginas dinamicas
 
+export const getStaticPaths = async () => {
+  const response = await fetch('https://avos.andresguerramontoya.com/api/avo')
+  const { data: productList }: TAPIAvoResponse = await response.json()
+  const paths = productList.map((product=> ({
+    params:{
+      id: product.id
+    }
+  })))
+  return {
+    paths,
+    //Incremental static generation
+    //En False hace que cualquier pagina que no se especifique dentro 
+    //de los paths dara un error 404
+    fallback: false
+  }
+}
 
-const ProductPage = () => {
-  const { query } = useRouter()
-  const [product, setProduct] = useState<TProduct | null>(null)
-  const [loading, setLoading] = React.useState(true);
+export const getStaticProps : GetStaticProps = async ({params}) => {
+  const id = params?.id as string
+  const response = await fetch(
+    `https://avos.andresguerramontoya.com/api/avo/${id}`
+  )
+  const product:  TProduct = await response.json()
 
-  useEffect(() => {
-    if (query.id) {
-      fetch(`/api/avo/${query.id}`)
-        .then((response) => response.json())
-        .then((data: TProduct) => {
-          setProduct(data)
-        })
-        
-    }setLoading(false)
-  }, [query.id])
+  return {
+    props: {
+      product,
+    },
+  }
+}
 
+const ProductPage = ({ product }: { product: TProduct }) => {
   return (
     <Layout>
-      
-      {(loading && <Loader/>) ||(product == null ? null : <ProductSummary product={product} />)}
+      {product == null ? null : <ProductSummary product={product} />}
     </Layout>
   )
 }

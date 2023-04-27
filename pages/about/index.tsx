@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '@components/Layout/Layout'
+import Image from 'next/image'
 
 const avoFacts = [
   {
@@ -32,12 +33,20 @@ const avoFacts = [
 const AboutPage = () => {
   return (
     <Layout>
-      <section className='smush'>
-        <h2 className='centertxt pad'>
-          13 Surprising Facts About Avocados
-        </h2>
-        <figure>
-          <img src="/images/avocados.jpg" alt="Avocados on a table" width="80%" height="80%" />
+      <section className="smush pad">
+        <h2 className="centertxt pad">13 Surprising Facts About Avocados</h2>
+
+        <figure
+          className=" centertxt mt13 mb13 anchor mauto"
+          style={{ width: '90%', height: 'auto', overflow: 'hidden' }}
+        >
+          <Image
+            src="/images/avocados.jpg"
+            alt="Avocados on a table"
+            layout='responsive'
+            width={1200}
+            height={899}
+          />
           <figcaption>
             Originally from{' '}
             <a
@@ -48,7 +57,11 @@ const AboutPage = () => {
             </a>
           </figcaption>
         </figure>
-        <ol>
+
+        <ol
+          className="aureole two mt13"
+          style={{ gridGap: 'calc(var(--aura) * 4)' }}
+        >
           {avoFacts.map(({ title, content }) => (
             <li key={title}>
               <h3 className="ui header">{title}</h3>
@@ -65,10 +78,6 @@ const AboutPage = () => {
           margin: 0;
         }
 
-        figure {
-          margin: 2rem auto 3rem;
-          text-align: center;
-        }
         figcaption {
           margin-top: 0.5rem;
           font-site: 0.7rem;
@@ -80,9 +89,6 @@ const AboutPage = () => {
 
           // Look ma! Responsive grid with no Media queries :)
           // https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          grid-gap: 4.5rem 3rem;
 
           // Look ma! A CSS Counter :)
           // https://moderncss.dev/totally-custom-list-styles/
