@@ -7,7 +7,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Add your custom Head content here */}
+          <meta name="description" content="Small e-commerce site for an avocado store built with Next.js and TypeScript. The home page displays all available avocados, with the option to click on individual avocados to view more information about them. Users can add avocados to their shopping cart and proceed to checkout to complete their purchase." />
+          <link rel="icon" href="/avo.ico" />
         </Head>
         <body>
           <Main />
